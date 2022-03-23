@@ -10,6 +10,8 @@ using ariel::Direction;
 using namespace std;
 using namespace ariel; // The declaration of this namespace appears in the header file "Notebook.hpp" which I have created
 
+const int ROWLENGTH = 100;
+
 /**
  * Returns the input string without the whitespace characters: space, newline and tab.
  * Requires std=c++2a.
