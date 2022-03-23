@@ -1155,4 +1155,131 @@ TEST_CASE("Bad input")
     CHECK_THROWS(notebook.write(page, row, column, Direction::Horizontal, toWrite));
     CHECK_THROWS(notebook.read(page, row, column, Direction::Horizontal, toRead));
     notebook.erase(page, row, column, Direction::Horizontal, toWrite.length());
+
+    ///////////////////////////////////////////////////////////////////////////////
+
+    toWrite = "a a a a a";
+    toRead = toWrite.length();
+    page = 50;
+    row = 50;
+    column = 50;
+    CHECK_THROWS(notebook.write(page, row, column, Direction::Vertical, toWrite));
+    CHECK_THROWS(notebook.read(page, row, column, Direction::Vertical, toRead));
+    notebook.erase(page, row, column, Direction::Vertical, toWrite.length());
+
+    column = -1;
+    toWrite = "AAAAA";
+    check = nospaces(toWrite);
+    toRead = toWrite.length();
+    CHECK_THROWS(notebook.write(page, row, column, Direction::Vertical, toWrite));
+    CHECK_THROWS(notebook.read(page, row, column, Direction::Vertical, toRead));
+    notebook.erase(page, row, column, Direction::Vertical, toWrite.length());
+
+    toWrite = "a a a a a";
+    toRead = toWrite.length();
+    page = 1;
+    column = 0;
+    CHECK_THROWS(notebook.write(page, row, column, Direction::Horizontal, toWrite));
+    CHECK_THROWS(notebook.read(page, row, column, Direction::Horizontal, toRead));
+    notebook.erase(page, row, column, Direction::Horizontal, toWrite.length());
+
+    column = -1;
+    toWrite = "AAAAA";
+    check = nospaces(toWrite);
+    toRead = toWrite.length();
+    CHECK_THROWS(notebook.write(page, row, column, Direction::Horizontal, toWrite));
+    CHECK_THROWS(notebook.read(page, row, column, Direction::Horizontal, toRead));
+    notebook.erase(page, row, column, Direction::Horizontal, toWrite.length());
+
+    toWrite = "a\na\na\na\na";
+    page = 2;
+    toRead = toWrite.length();
+    CHECK_THROWS(notebook.write(page, row, column, Direction::Vertical, toWrite));
+    CHECK_THROWS(notebook.read(page, row, column, Direction::Vertical, toRead));
+    notebook.erase(page, row, column, Direction::Vertical, toWrite.length());
+
+    column = -1;
+    toWrite = "AAAAA";
+    check = nospaces(toWrite);
+    toRead = toWrite.length();
+    CHECK_THROWS(notebook.write(page, row, column, Direction::Vertical, toWrite));
+    CHECK_THROWS(notebook.read(page, row, column, Direction::Vertical, toRead));
+    notebook.erase(page, row, column, Direction::Vertical, toWrite.length());
+
+    toWrite = "a\na\na\na\na";
+    page = 3;
+    toRead = toWrite.length();
+    CHECK_THROWS(notebook.write(page, row, column, Direction::Horizontal, toWrite));
+    CHECK_THROWS(notebook.read(page, row, column, Direction::Horizontal, toRead));
+    notebook.erase(page, row, column, Direction::Horizontal, toWrite.length());
+
+    column = -1;
+    toWrite = "AAAAA";
+    check = nospaces(toWrite);
+    toRead = toWrite.length();
+    CHECK_THROWS(notebook.write(page, row, column, Direction::Horizontal, toWrite));
+    CHECK_THROWS(notebook.read(page, row, column, Direction::Horizontal, toRead));
+    notebook.erase(page, row, column, Direction::Horizontal, toWrite.length());
+
+    toWrite = "a\ta\ta\ta\ta";
+    page = 4;
+    toRead = toWrite.length();
+    CHECK_THROWS(notebook.write(page, row, column, Direction::Vertical, toWrite));
+    CHECK_THROWS(notebook.read(page, row, column, Direction::Vertical, toRead));
+    notebook.erase(page, row, column, Direction::Vertical, toWrite.length());
+
+    column = 100;
+    toWrite = "AAAAA";
+    check = nospaces(toWrite);
+    toRead = toWrite.length();
+    CHECK_THROWS(notebook.write(page, row, column, Direction::Vertical, toWrite));
+    CHECK_THROWS(notebook.read(page, row, column, Direction::Vertical, toRead));
+    notebook.erase(page, row, column, Direction::Vertical, toWrite.length());
+
+    toWrite = "a\ta\ta\ta\ta";
+    page = 5;
+    toRead = toWrite.length();
+    CHECK_THROWS(notebook.write(page, row, column, Direction::Horizontal, toWrite));
+    CHECK_THROWS(notebook.read(page, row, column, Direction::Horizontal, toRead));
+    notebook.erase(page, row, column, Direction::Horizontal, toWrite.length());
+
+    
+    column = 100;
+    toWrite = "AAAAA";
+    check = nospaces(toWrite);
+    toRead = toWrite.length();
+    CHECK_THROWS(notebook.write(page, row, column, Direction::Horizontal, toWrite));
+    CHECK_THROWS(notebook.read(page, row, column, Direction::Horizontal, toRead));
+    notebook.erase(page, row, column, Direction::Horizontal, toWrite.length());
+
+    toWrite = "a\ra\ra\ra\ra";
+    page = 6;
+    toRead = toWrite.length();
+    CHECK_THROWS(notebook.write(page, row, column, Direction::Vertical, toWrite));
+    CHECK_THROWS(notebook.read(page, row, column, Direction::Vertical, toRead));
+    notebook.erase(page, row, column, Direction::Vertical, toWrite.length());
+
+    column = 100;
+    toWrite = "AAAAA";
+    check = nospaces(toWrite);
+    toRead = toWrite.length();
+    CHECK_THROWS(notebook.write(page, row, column, Direction::Vertical, toWrite));
+    CHECK_THROWS(notebook.read(page, row, column, Direction::Vertical, toRead));
+    notebook.erase(page, row, column, Direction::Vertical, toWrite.length());
+
+    toWrite = "a\ra\ra\ra\ra";
+    page = 7;
+    toRead = toWrite.length();
+    CHECK_THROWS(notebook.write(page, row, column, Direction::Horizontal, toWrite));
+    CHECK_THROWS(notebook.read(page, row, column, Direction::Horizontal, toRead));
+    notebook.erase(page, row, column, Direction::Horizontal, toWrite.length());
+
+    
+    column = 100;
+    toWrite = "AAAAA";
+    check = nospaces(toWrite);
+    toRead = toWrite.length();
+    CHECK_THROWS(notebook.write(page, row, column, Direction::Horizontal, toWrite));
+    CHECK_THROWS(notebook.read(page, row, column, Direction::Horizontal, toRead));
+    notebook.erase(page, row, column, Direction::Horizontal, toWrite.length());
 }
